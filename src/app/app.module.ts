@@ -4,7 +4,8 @@ import {
   MatButtonModule, 
   MatToolbarModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatTableModule
 } from '@angular/material';
 
 import { FormBuilder, FormGroup, FormControl, FormsModule } from '@angular/forms';
@@ -17,6 +18,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ProductsService } from './services/products.service';
 
 const routes = [
   { path: 'products', component: ProductsComponent },
@@ -45,9 +47,12 @@ const routes = [
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
+    MatTableModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    ProductsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
