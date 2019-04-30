@@ -14,8 +14,15 @@ export class ProductsService {
     return this._http.get(`${ApiUrl}/product`);
   }
 
-  // -- not needed to view products but may use later to allow delete
-  // private getHeaders() {
-  //   return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
-  // }
+  getProduct(id: string) {
+    return this._http.get(`${ApiUrl}/product/${id}`);
+  }
+
+  deleteProduct(id: number) {
+    return this._http.delete(`${ApiUrl}/products/${id}`, { headers: this.getHeaders() });
+  }
+
+  private getHeaders() {
+    return new HttpHeaders().set('Authorization', `Bearer ${localStorage.getItem('id_token')}`);
+  }
 }
