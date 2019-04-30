@@ -1,6 +1,7 @@
 .nat-btn {
     margin-right: 2em;
-    background-color: cadetblue;
+    background-color: pink;
+    font-family: 'Kaushan Script', cursive;
 }
 
 .spacer {
@@ -10,4 +11,9 @@
 
 .expand {
     flex: 1 1 auto;
+   
+}
+.mat-toolbar{
+    background-color: green;
+    font-family: 'Archivo Black', sans-serif;
 }
