@@ -1,0 +1,22 @@
+.container{
+    margin: 4em;
+}
+.mat-row {
+    padding: 1em 0 1em 0;
+}
+.mat-paginator {
+    margin: 0;
+}
+img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+}
+a {
+    color:#fff;
+}
+a:hover,
+a:visited{
+    color: rgb(196, 194, 194);
+}
