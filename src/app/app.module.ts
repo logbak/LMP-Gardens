@@ -5,12 +5,14 @@ import {
   MatToolbarModule,
   MatFormFieldModule,
   MatInputModule,
-  MatTableModule
+  MatTableModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 import { FormBuilder, FormGroup, FormControl, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HeaderComponent } from './components/header/header.component';
@@ -48,7 +50,9 @@ const routes = [
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    RouterModule.forRoot(routes)
+    MatPaginatorModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [
     ProductsService
