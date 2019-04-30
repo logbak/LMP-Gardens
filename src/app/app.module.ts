@@ -10,7 +10,6 @@ import {
   MatCardModule
 } from '@angular/material';
 
-import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormBuilder, FormGroup, FormControl, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
@@ -63,7 +62,6 @@ const routes = [
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
-
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
@@ -74,11 +72,9 @@ const routes = [
     HttpClientModule,
     FlexLayoutModule
   ],
+  
   providers: [
-    ProductsService
-  ],
-
-  providers: [
+    ProductsService,
     AuthService
   ],
 
