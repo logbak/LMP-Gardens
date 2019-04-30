@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import "../node_modules/@angular/material/prebuilt-themes/purple-green.css";
+
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url("app/Assets/photo-1554487015-903ebb4ba11b.jpg");
+    background-repeat: no-repeat;
+   
+}
