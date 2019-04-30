@@ -7,6 +7,8 @@ import {
   MatInputModule
 } from '@angular/material';
 
+import { HttpClientModule } from '@angular/common/http';
+
 import { FormBuilder, FormGroup, FormControl, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
@@ -17,6 +19,11 @@ import { AboutComponent } from './components/about/about.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { AuthService } from './services/auth.service';
+
+
+const Api_Url = "https://kcpelevennote.azurewebsites.net";
+
 
 const routes = [
   { path: 'products', component: ProductsComponent },
@@ -25,6 +32,9 @@ const routes = [
   { path: 'login', component: LoginComponent },
   { path: '**', component: AboutComponent }
 ];
+
+
+
 
 @NgModule({
   declarations: [
@@ -37,17 +47,21 @@ const routes = [
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     MatButtonModule,
     LayoutModule,
     MatToolbarModule,
     MatButtonModule,
+
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
