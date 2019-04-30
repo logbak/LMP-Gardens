@@ -1,0 +1,24 @@
+<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+    <div fxFlex="40%"></div>
+    <div fxFlex="20%">
+        <mat-card class = "detail-card">
+            <mat-card-header>
+               <mat-card-title>{{product.product_name}}</mat-card-title>
+               
+            </mat-card-header>
+            <img mat-card-image src = "{{product.product_image}}" alt = "Product Image">
+            <mat-card-content>
+               <p>
+                  {{product.product_description}}
+               </p>
+               <mat-card-subtitle>${{product.product_price}}.00</mat-card-subtitle>
+            </mat-card-content>
+            <mat-card-actions>
+              <p>Are you sure you want to delete this?</p>
+               <button mat-button color="warn" (click)="onDelete()">Delete</button>
+               <button mat-button routerLink="/products">Back to Products</button>
+            </mat-card-actions>
+          </mat-card>
+    </div>
+    <div fxFlex="40%"></div>
+</div>

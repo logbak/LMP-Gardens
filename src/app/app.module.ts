@@ -4,12 +4,17 @@ import {
   MatButtonModule, 
   MatToolbarModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
+  MatTableModule,
+  MatPaginatorModule,
+  MatCardModule
 } from '@angular/material';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormBuilder, FormGroup, FormControl, FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,9 +22,17 @@ import { AboutComponent } from './components/about/about.component';
 import { ProductsComponent } from './components/products/products.component';
 import { LoginComponent } from './components/login/login.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { ProductsService } from './services/products.service';
+import { DetailComponent } from './components/products/detail/detail.component';
+import { DeleteComponent } from './components/products/delete/delete.component';
 
 const routes = [
-  { path: 'products', component: ProductsComponent },
+  { path: 'products', children: [
+      { path: '', component: ProductsComponent },
+      { path: 'detail/:id', component: DetailComponent},
+      { path: 'delete/:id', component: DeleteComponent}
+    ]
+  },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'login', component: LoginComponent },
@@ -33,7 +46,9 @@ const routes = [
     AboutComponent,
     ProductsComponent,
     LoginComponent,
-    ContactComponent
+    ContactComponent,
+    DetailComponent,
+    DeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -45,9 +60,16 @@ const routes = [
     FormsModule,
     MatFormFieldModule,
     MatInputModule,
-    RouterModule.forRoot(routes)
+    MatTableModule,
+    MatPaginatorModule,
+    MatCardModule,
+    RouterModule.forRoot(routes),
+    HttpClientModule,
+    FlexLayoutModule
   ],
-  providers: [],
+  providers: [
+    ProductsService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
